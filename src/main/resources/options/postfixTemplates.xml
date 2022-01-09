@@ -1,0 +1,64 @@
+<application>
+  <component name="PostfixTemplates">
+    <template id="rec@userDefined" key=".rec" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="channel" />
+      </conditions>
+      <template name="fakeKey" value="&lt;-$EXPR$" description="" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="wrap@userDefined" key=".wrap" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="error" />
+      </conditions>
+      <template name="fakeKey" value="errors.Wrap($EXPR$, &quot;$END$&quot;)" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="split@userDefined" key=".split" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="type" type="[]string" />
+      </conditions>
+      <template name="fakeKey" value="strings.Split($EXPR$, $A1$,$END$)" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="in@userDefined" key=".in" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="channel" />
+      </conditions>
+      <template name="fakeKey" value="for v := range $EXPR$ {&#10;    $END$&#10;}" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="in@userDefined" key=".in" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="slice" />
+        <condition id="map" />
+      </conditions>
+      <template name="fakeKey" value="for _, v := range $EXPR$ {&#10;    $END$&#10;}" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="errp@userDefined" key=".errp" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="error" />
+      </conditions>
+      <template name="fakeKey" value="if $EXPR$ != nil {&#10; return errors.Wrap($EXPR$, &quot;$END$&quot;)&#10;}" description="" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="join@userDefined" key=".join" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="type" type="[]string" />
+      </conditions>
+      <template name="fakeKey" value="strings.Join($EXPR$, $END$)" toReformat="true" toShortenFQNames="true" />
+    </template>
+    <template id="append@userDefined" key=".append" provider="com.goide.postfix.GoPostfixTemplateProvider" topmost="false">
+      <conditions>
+        <condition id="slice" />
+      </conditions>
+      <template name="fakeKey" value="$EXPR$ = append($EXPR$, $END$)" description="" toReformat="true" toShortenFQNames="true" />
+    </template>
+  </component>
+  <component name="PostfixTemplatesSettings">
+    <option name="providerToDisabledTemplates">
+      <disabled-templates provider="com.goide.postfix.GoPostfixTemplateProvider">
+        <value>
+          <set>
+            <option value="append" />
+          </set>
+        </value>
+      </disabled-templates>
+    </option>
+  </component>
+</application>

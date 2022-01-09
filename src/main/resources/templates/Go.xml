@@ -1,0 +1,76 @@
+<templateSet group="Go">
+  <template name="jsonc" value="json:&quot;$FIELD_NAME$&quot;" description="json:&quot;&quot;" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="camelCase(fieldName())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_TAG_LITERAL" value="true" />
+    </context>
+  </template>
+  <template name="wrap" value="$END$ errors.Wrap($ERR$, &quot;$TEXT$&quot;)" description="errors.wrap" toReformat="true" toShortenFQNames="true">
+    <variable name="ERR" expression="errorVariable()" defaultValue="&quot;err&quot;" alwaysStopAt="true" />
+    <variable name="TEXT" expression="errorVariable()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_EXPRESSION" value="true" />
+      <option name="GO_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="errr" value="if $ERR$ != nil {&#10; return $RETURN$errors.Wrapf($ERR$, &quot;$TEXT$&quot;$END$)&#10;}" description="If error return" toReformat="true" toShortenFQNames="true">
+    <variable name="ERR" expression="errorVariable()" defaultValue="&quot;err&quot;" alwaysStopAt="true" />
+    <variable name="RETURN" expression="regularExpression(defaultReturnValues, &quot;([^,]*$)&quot;, &quot;&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEXT" expression="errorVariable()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="ss" value="func ss(s ...string) []string { return s }" description="string slice" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+  <template name="sort" value="type $SLICE$ []$TYPE$&#10;func ($REC$ $SLICE$) Len() int           { return len($REC$) }&#10;func ($REC$ $SLICE$) Swap(i, j int)      { $REC$[i], $REC$[j] = $REC$[j], $REC$[i] }&#10;func ($REC$ $SLICE$) Less(i, j int) bool {&#10;    panic(&quot;implement me&quot;)$END$&#10;}" description="Sort interface" toReformat="true" toShortenFQNames="true">
+    <variable name="SLICE" expression="" defaultValue="SomeSlice" alwaysStopAt="true" />
+    <variable name="TYPE" expression="complete()" defaultValue="Some" alwaysStopAt="true" />
+    <variable name="REC" expression="" defaultValue="ss" alwaysStopAt="true" />
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+  <template name="in" value="func isIn$Type$Slice(v $type$, values ...$type$) bool {&#10;&#9;for i := range values {&#10;&#9;&#9;if values[i] == v {&#10;&#9;&#9;&#9;return true&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;return false&#10;}" description="in slice" toReformat="true" toShortenFQNames="true">
+    <variable name="type" expression="" defaultValue="&quot;string&quot;" alwaysStopAt="true" />
+    <variable name="Type" expression="" defaultValue="&quot;String&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+  <template name="getter" value="func ($RECEIVER$ *$TYPE_1$) Safe$NAME$() $TYPE_2$ {&#10;&#9;if $RECEIVER$ == nil {&#10;&#9;&#9;return $RESULT$$END$&#10;&#9;}&#10;&#9;return $RECEIVER$.$NAME$&#10;}" description="Getter" toReformat="true" toShortenFQNames="true">
+    <variable name="TYPE_1" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="" defaultValue="&quot;FieldName&quot;" alwaysStopAt="true" />
+    <variable name="TYPE_2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RECEIVER" expression="goSuggestVariableName()" defaultValue="&quot;rec&quot;" alwaysStopAt="true" />
+    <variable name="RESULT" expression="defaultReturnValues()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+  <template name="def" value="$VALUES$$END$" description="default return values" toReformat="true" toShortenFQNames="true">
+    <variable name="VALUES" expression="defaultReturnValues()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO" value="true" />
+      <option name="GO_BLOCK" value="false" />
+      <option name="GO_FILE" value="false" />
+      <option name="GO_STATEMENT" value="false" />
+      <option name="GO_TAG" value="false" />
+      <option name="GO_TAG_LITERAL" value="false" />
+      <option name="GO_TYPE" value="false" />
+    </context>
+  </template>
+  <template name="sp" value="func ss(s string) *string { return &amp;s }" description="pointer to" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+  <template name="sv" value="func ss(s *string) string {&#10;    if s == nil {&#10;        return &quot;&quot;&#10;    }&#10;    return *s &#10;}" description="pointer to" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="GO_FILE" value="true" />
+    </context>
+  </template>
+</templateSet>

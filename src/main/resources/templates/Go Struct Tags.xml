@@ -1,0 +1,20 @@
+<templateSet group="Go Struct Tags">
+  <template name="jsonc" value="`json:&quot;$FIELD_NAME$&quot;$END$`" description="`json:&quot;&quot;`" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="camelCase(fieldName())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_TAG" value="true" />
+    </context>
+  </template>
+  <template name="sql" value="`sql:&quot;$FIELD_NAME$$END$&quot;`" description="`sql:&quot;&quot;`" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="camelCase(fieldName())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_TAG" value="true" />
+    </context>
+  </template>
+  <template name="pg" value="`pg:&quot;$FIELD_NAME$$END$&quot;`" description="`pg:&quot;&quot;`" toReformat="true" toShortenFQNames="true">
+    <variable name="FIELD_NAME" expression="camelCase(fieldName())" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_TAG" value="true" />
+    </context>
+  </template>
+</templateSet>
