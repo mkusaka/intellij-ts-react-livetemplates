@@ -580,4 +580,4 @@ $ ./gradlew build
 ```
 
 install
-cmd + , > plugin > install from Disk... > open ./build/distributions/ts_react_livetemplates_with_goland-1.0.3.zip
+cmd + , > plugin > install from Disk... > open ./build/distributions/ts_react_livetemplates_with_goland-1.0.4.zip
