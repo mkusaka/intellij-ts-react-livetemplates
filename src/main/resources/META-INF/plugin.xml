@@ -9,7 +9,7 @@
 
       <p>Currently supported:</p>
 
-      
+
 <li><tt>uses</tt>: <em>React.useState()</em></li>
 
 <li><tt>usee</tt>: <em>React.useEffect()</em></li>
@@ -69,6 +69,8 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <defaultLiveTemplates file="/templates/TypedReact.xml"/>
+    <defaultLiveTemplates file="/templates/Go.xml"/>
+    <defaultLiveTemplates file="/templates/Go_Struct_Tags.xml"/>
   </extensions>
 
   <actions>
