@@ -6,7 +6,7 @@
 ![JetBrains plugins](https://img.shields.io/jetbrains/plugin/d/16796)
 ![JetBrains Plugins](https://img.shields.io/jetbrains/plugin/r/rating/16796)
 
-Live templates for Typescript and typed React code, for IntelliJ Idea, 
+Live templates for Typescript and typed React code, for IntelliJ Idea,
 Webstorm, PHPStorm and other Jetbrains IDEs. With sensible variable
 expressions and useful skeleton templates.
 
@@ -385,3 +385,13 @@ To test if your changes are working, clone the repo and run the gradle script `r
 
 Do not update the documentation in the readme.md or plugin.xml files, they are updated
 automatically.
+
+## comand
+
+build
+```sh
+$ ./gradlew build
+```
+
+install
+cmd + , > plugin > install from Disk... > open ./build/distributions/ts_react_livetemplates_with_goland-1.0.3.zip
