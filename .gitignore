@@ -1,4 +1,5 @@
 build
+!build/distributions/*
 .gradle
 scripts/.gradle
 scripts/node_modules
