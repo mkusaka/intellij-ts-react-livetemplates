@@ -21,6 +21,14 @@
       <option name="GO_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="xerrr" value="if $ERR$ != nil {&#10; return $RETURN$xerrors.ErrorF($TEXT$, &quot;$ERR$&quot;$END$)&#10;}" description="If error return" toReformat="true" toShortenFQNames="true">
+    <variable name="ERR" expression="errorVariable()" defaultValue="&quot;err&quot;" alwaysStopAt="true" />
+    <variable name="RETURN" expression="regularExpression(defaultReturnValues, &quot;([^,]*$)&quot;, &quot;&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEXT" expression="errorVariable()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO_STATEMENT" value="true" />
+    </context>
+  </template>
   <template name="ss" value="func ss(s ...string) []string { return s }" description="string slice" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="GO_FILE" value="true" />
